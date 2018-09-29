@@ -1,8 +1,8 @@
 # contacts-like
 
-> js实现的一个类通讯录的小demo
+> js实现的一个类通讯录的小demo   
 > 技术栈: vue.js, Velocity.js, jsonp
-> [在线预览]()
+
 
 ## Build Setup
 
