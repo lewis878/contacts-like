@@ -14,7 +14,8 @@
     "babel-runtime": "^6.26.0",
     "fastclick": "^1.0.6",
     "velocity-animate": "^1.5.2",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-lazyload": "^1.2.6"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

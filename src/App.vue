@@ -6,7 +6,7 @@
         <h2 class="title">{{group.title}}</h2>
         <ul>
           <li v-for="item in group.items" class="list-item">
-            <img :src="item.avatar" alt="" class="avatar" width="50" height="50">
+            <img v-lazy="item.avatar" alt="" class="avatar" width="50" height="50">
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
@@ -21,12 +21,14 @@
       </li>
     </ul>
     <div class="fix-top" v-show="fixTop" ref="fix-top">{{fixTop}}</div>
+    <loading class="loading" v-show="!singerList.length"></loading>
   </div>
 </template>
 
 <script>
   import getData from './api/getData'
   import Velocity from 'velocity-animate'
+  import loading from './components/loading/loading'
 
   const TITLE_HEIGHT = 30
 
@@ -61,7 +63,9 @@
 
     },
     created() {
-      this._getData()
+      setTimeout(()=>{
+        this._getData()
+      },2000)
     },
     updated() {
       // console.log(this.$refs['list-group']);
@@ -173,7 +177,7 @@
         this.$refs['fix-top'].style.top = '0px'
       }
     },
-    components: {}
+    components: {loading}
   }
 </script>
 
@@ -238,6 +242,12 @@
       padding-left: 20px;
       background: $border-color;
       font-size: 16px;
+    }
+    .loading{
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
     }
   }
 </style>
